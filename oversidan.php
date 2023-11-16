@@ -31,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['datum'])) {
     <input type="date" name="datum" id="datum">
     <button type="submit">Ändra datum</button>
   </form>
-
 <?php
 $currentDate = date('Y-m-d H:i:s');
 

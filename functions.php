@@ -59,4 +59,26 @@ function getGreetingBasedOnTime()
   }
 }
 
+function calculatePrice()
+{
+  $usage = isset($_GET['usage']) ? $_GET['usage'] : 0;
+  $elpris = isset($_GET['elpris']) ? $_GET['elpris'] : 0;
+
+  // Ensure values are numeric and non-negative
+  if (!is_numeric($usage) || !is_numeric($elpris) || $usage < 0 || $elpris < 0) {
+    return "Felaktiga värden. Ange positiva numeriska värden.";
+  }
+
+  // Round up to the nearest upper integer
+  $usage = ceil($usage);
+  $elpris = ceil($elpris);
+
+  $totalPrice = $elpris * $usage;
+  if ($totalPrice == 0) {
+    return "Ange värden för att beräkna priset.";
+  }
+  if ($totalPrice !== 0) {
+    return "Det beräknade priset blev: " . $totalPrice;
+  }
+}
 ?>

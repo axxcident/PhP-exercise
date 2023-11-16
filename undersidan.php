@@ -14,7 +14,7 @@
   <h3>Undersidan</h3>
   <form method="post">
     <label for="multiplier">Ange en multiplikator: </label>
-    <input type="number" id="multiplier" name="multiplier" value="1" min="1" required>
+    <input type="number" id="multiplier" name="multiplier" value=1 min=1 max=9 required>
     <button type="submit">Uppdatera</button>
   </form>
 
