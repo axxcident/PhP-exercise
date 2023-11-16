@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <?php include("header.php") ?>
+  <?php include "header.php" ?>
   <section>
     <h2>Välkommen</h2>
     <h3>
@@ -20,7 +20,7 @@
       ?>
     </h3>
   </section>
-  <?php include("footer.php") ?>
+  <?php include "footer.php" ?>
 </body>
 
 </html>

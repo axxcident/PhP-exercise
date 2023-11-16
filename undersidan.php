@@ -9,7 +9,7 @@
   <script src="hotreload.js?timestamp=<?php echo time(); ?>"></script>
   <title>Översidan</title>
 </head>
-<?php include("header.php") ?>
+<?php include "header.php" ?>
 <section>
   <h3>Undersidan</h3>
   <form method="post">
@@ -35,6 +35,6 @@
     ?>
   </ul>
 </section>
-<?php include("footer.php") ?>
+<?php include "footer.php" ?>
 
 </html>

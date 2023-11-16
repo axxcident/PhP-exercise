@@ -9,7 +9,7 @@
   <script src="hotreload.js?timestamp=<?php echo time(); ?>"></script>
   <title>Översidan</title>
 </head>
-<?php include("header.php") ?>
+<?php include "header.php" ?>
 <section>
   <h3>
     <?php echo "<p>Idag är det: " . date('F j') . " en " . translateWeekDay(date('l')) . "</p>"; ?>
@@ -20,6 +20,6 @@
   echo "<p>$greetingMessage</p>";
   ?>
 </section>
-<?php include("footer.php") ?>
+<?php include "footer.php" ?>
 
 </html>
