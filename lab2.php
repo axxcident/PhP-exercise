@@ -13,7 +13,19 @@
 <body>
   <?php include "header.php" ?>
   <section>
-    <h2>Välkommen</h2>
+    <form class="namnform" action="" method="get">
+      <label for="namn">Ange ditt namn: </label>
+      <input type="text" name="namn" id="namn">
+      <button type="submit">göre</button>
+    </form>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+      $namn = isset($_GET['namn']) ? $_GET['namn'] : "";
+    }
+    ?>
+    <?php
+    echo "<h2>Välkommen $namn</h2>";
+    ?>
     <h3>
       <?php
       echo getGreetingBasedOnTime();

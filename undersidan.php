@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css?timestamp=<?php echo microtime() ?>">
   <script src="hotreload.js?timestamp=<?php echo time(); ?>"></script>
-  <title>Översidan</title>
+  <title>Undersidan</title>
 </head>
 <?php include "header.php" ?>
 <section>
