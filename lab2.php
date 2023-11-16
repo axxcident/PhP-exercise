@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Check if the user is not logged in, redirect to the login page
+if (!isset($_SESSION['user'])) {
+  header("Location: login.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <?php include "functions.php" ?>
 <html lang="en">
@@ -31,6 +40,7 @@
       echo getGreetingBasedOnTime();
       ?>
     </h3>
+    <?php echo "<a href='logout.php'>Logout</a>"; ?>
   </section>
   <?php include "footer.php" ?>
 </body>
