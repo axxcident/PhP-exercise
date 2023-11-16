@@ -11,14 +11,38 @@
 </head>
 <?php include "header.php" ?>
 <section>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['datum'])) {
+  $selectedDate = $_POST['datum'];
+  $formattedDate = date('F j', strtotime($selectedDate));
+  $dayOfWeek = translateWeekDay(date('l', strtotime($selectedDate)));
+  $displayMessage = "Det valda datumet är $formattedDate en $dayOfWeek";
+} else {
+  $displayMessage = "Idag är det: " . date('F j') . " en " . translateWeekDay(date('l'));
+}
+?>
   <h3>
-    <?php echo "<p>Idag är det: " . date('F j') . " en " . translateWeekDay(date('l')) . "</p>"; ?>
+    <?php echo "<p>$displayMessage</p>"; ?>
   </h3>
-  <?php
-  $currentDate = date('Y-m-d H:i:s');
-  $greetingMessage = printDateIsEvenString($currentDate);
-  echo "<p>$greetingMessage</p>";
-  ?>
+
+  <form action="" method="post" class="formdatum">
+    <label for="datum">Välj datum: </label>
+    <input type="date" name="datum" id="datum">
+    <button type="submit">Ändra datum</button>
+  </form>
+
+<?php
+$currentDate = date('Y-m-d H:i:s');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['datum'])) {
+  $currentDate = $_POST['datum'];
+}
+
+$greetingMessage = printDateIsEvenString($currentDate);
+echo "<p>$greetingMessage</p>";
+?>
+
 </section>
 <?php include "footer.php" ?>
 

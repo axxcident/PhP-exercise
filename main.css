@@ -55,6 +55,16 @@ section form {
   padding: 2rem;
 }
 
+.formdatum {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.formdatum * {
+  padding: 0 2rem;
+}
+
 section h5 {
   font-size: larger;
 }
