@@ -1,6 +1,16 @@
+<?php
+session_start();
+
+// Check if the user is not logged in, redirect to the login page
+if (!isset($_SESSION['user'])) {
+  header("Location: login.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <?php include("functions.php") ?>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +19,7 @@
   <title>Mellansida</title>
 </head>
 <?php include "header.php" ?>
-<section>
+<section class="mellansidan">
   <h4>Mellansidan</h4>
   <form action="" method="get" class="elprisform">
     <label for="elpris">Aktuellt elpris (kr/KwH): </label>
@@ -18,8 +28,11 @@
     <input type="number" name="usage" id="usage" required step="any">
     <button type="submit">Beräkna priset</button>
   </form>
-  <p><?php echo calculatePrice(); ?></p>
+  <p>
+    <?php echo calculatePrice(); ?>
+  </p>
 
 </section>
 <?php include "footer.php" ?>
+
 </html>

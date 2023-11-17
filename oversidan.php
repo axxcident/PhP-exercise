@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Check if the user is not logged in, redirect to the login page
+if (!isset($_SESSION['user'])) {
+  header("Location: login.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <?php include("functions.php") ?>
 <html lang="en">
@@ -10,18 +19,18 @@
   <title>Översidan</title>
 </head>
 <?php include "header.php" ?>
-<section>
+<section class="oversidan">
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['datum'])) {
-  $selectedDate = $_POST['datum'];
-  $formattedDate = date('F j', strtotime($selectedDate));
-  $dayOfWeek = translateWeekDay(date('l', strtotime($selectedDate)));
-  $displayMessage = "Det valda datumet är $formattedDate en $dayOfWeek";
-} else {
-  $displayMessage = "Idag är det: " . date('F j') . " en " . translateWeekDay(date('l'));
-}
-?>
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['datum'])) {
+    $selectedDate = $_POST['datum'];
+    $formattedDate = date('F j', strtotime($selectedDate));
+    $dayOfWeek = translateWeekDay(date('l', strtotime($selectedDate)));
+    $displayMessage = "Det valda datumet är $formattedDate en $dayOfWeek";
+  } else {
+    $displayMessage = "Idag är det: " . date('F j') . " en " . translateWeekDay(date('l'));
+  }
+  ?>
   <h3>
     <?php echo "<p>$displayMessage</p>"; ?>
   </h3>
@@ -31,16 +40,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['datum'])) {
     <input type="date" name="datum" id="datum">
     <button type="submit">Ändra datum</button>
   </form>
-<?php
-$currentDate = date('Y-m-d H:i:s');
+  <?php
+  $currentDate = date('Y-m-d H:i:s');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['datum'])) {
-  $currentDate = $_POST['datum'];
-}
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['datum'])) {
+    $currentDate = $_POST['datum'];
+  }
 
-$greetingMessage = printDateIsEvenString($currentDate);
-echo "<p>$greetingMessage</p>";
-?>
+  $greetingMessage = printDateIsEvenString($currentDate);
+  echo "<p>$greetingMessage</p>";
+  ?>
 
 </section>
 <?php include "footer.php" ?>

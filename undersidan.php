@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Check if the user is not logged in, redirect to the login page
+if (!isset($_SESSION['user'])) {
+  header("Location: login.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <?php include("functions.php") ?>
 <html lang="en">
@@ -10,7 +19,7 @@
   <title>Undersidan</title>
 </head>
 <?php include "header.php" ?>
-<section>
+<section class="undersidan">
   <h3>Undersidan</h3>
   <form method="post">
     <label for="multiplier">Ange en multiplikator: </label>

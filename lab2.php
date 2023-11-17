@@ -21,16 +21,17 @@ if (!isset($_SESSION['user'])) {
 
 <body>
   <?php include "header.php" ?>
-  <section>
-    <form class="namnform" action="" method="get">
+  <section class="labb2">
+    <!-- <form class="namnform" action="" method="get">
       <label for="namn">Ange ditt namn: </label>
       <input type="text" name="namn" id="namn">
       <button type="submit">göre</button>
-    </form>
+    </form> -->
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-      $namn = isset($_GET['namn']) ? $_GET['namn'] : "";
-    }
+    // if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    //   $namn = isset($_GET['namn']) ? $_GET['namn'] : "";
+    // }
+    $namn = $_SESSION['user'];
     ?>
     <?php
     echo "<h2>Välkommen $namn</h2>";
@@ -40,7 +41,7 @@ if (!isset($_SESSION['user'])) {
       echo getGreetingBasedOnTime();
       ?>
     </h3>
-    <?php echo "<a href='logout.php'>Logout</a>"; ?>
+    <?php echo "<a class='logout' href='logout.php'>Logout</a>"; ?>
   </section>
   <?php include "footer.php" ?>
 </body>
